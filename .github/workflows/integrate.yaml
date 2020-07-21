@@ -1,0 +1,13 @@
+name: test github actions
+
+on: push
+
+jobs: 
+    run_push:
+        runs-on: ubuntu-latest
+        steps:
+            - name: clonar y checkout a la rama
+            - uses: actions/checkout@v1
+            - name: instalar dependencias
+            - run: npm install
+            - run: npm start

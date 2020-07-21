@@ -1,0 +1,127 @@
+{
+    "conveniosInfo":[
+       {
+          "codigoAsociacion":"8909225861-1",
+          "codigoDispersion":"%*6",
+          "tipoDocumento":"N",
+          "numeroDocumento":"8909225861",
+          "fechaCreacion":"2020-02-08",
+          "fechaVencimiento":"2021-02-08",
+          "nombreCliente":"EMPRESA PRUEBAS",
+          "unidadNegocio":"08590060000",
+          "usuarioCreacion":"osierra"
+       },
+       {
+          "codigoAsociacion":"8600715621-4",
+          "codigoDispersion":"!JN",
+          "tipoDocumento":"N",
+          "numeroDocumento":"8600715621",
+          "fechaCreacion":"2020-02-07",
+          "fechaVencimiento":"2021-02-07",
+          "nombreCliente":"ACCIONES Y VALORES S.A.S SSSSSSSSSSSSSSSSSSSSSSSSS",
+          "unidadNegocio":"06370030001",
+          "usuarioCreacion":"osierra"
+       },
+       {
+          "codigoAsociacion":"8601402014-1",
+          "codigoDispersion":"%)E",
+          "tipoDocumento":"N",
+          "numeroDocumento":"8601402014",
+          "fechaCreacion":"2020-02-17",
+          "fechaVencimiento":"2021-02-17",
+          "nombreCliente":"ESTATUAS DE PORCELANA",
+          "unidadNegocio":"17820090000",
+          "usuarioCreacion":"cpined4"
+       },
+       {
+          "codigoAsociacion":"8601402014-2",
+          "codigoDispersion":"%*%",
+          "tipoDocumento":"N",
+          "numeroDocumento":"8601402014",
+          "fechaCreacion":"2020-02-17",
+          "fechaVencimiento":"2021-02-17",
+          "nombreCliente":"ESTATUAS DE PORCELANA",
+          "unidadNegocio":"17820090000",
+          "usuarioCreacion":"lsanab6"
+       },
+       {
+          "codigoAsociacion":"8601402014-3",
+          "codigoDispersion":"62P",
+          "tipoDocumento":"N",
+          "numeroDocumento":"8601402014",
+          "fechaCreacion":"2020-02-17",
+          "fechaVencimiento":"2021-02-17",
+          "nombreCliente":"ESTATUAS DE PORCELANA",
+          "unidadNegocio":"17820090000",
+          "usuarioCreacion":"lsanab6"
+       },
+       {
+          "codigoAsociacion":"115487-1",
+          "codigoDispersion":"%$#",
+          "tipoDocumento":"C",
+          "numeroDocumento":"1015",
+          "fechaCreacion":"2020-02-04",
+          "fechaVencimiento":"2021-02-04",
+          "nombreCliente":"CLIENTE CORRESPONSAL BCARIO",
+          "unidadNegocio":"UN0000",
+          "usuarioCreacion":"Ferney Diaz"
+       },
+       {
+          "codigoAsociacion":"8600150679-1",
+          "codigoDispersion":"%-G",
+          "tipoDocumento":"N",
+          "numeroDocumento":"8600150679",
+          "fechaCreacion":"2020-04-07",
+          "fechaVencimiento":"2020-06-05",
+          "nombreCliente":"CLIENTE MIGRAR BBS A CORP 0055",
+          "unidadNegocio":"08590060000",
+          "usuarioCreacion":"fdiaz6"
+       },
+       {
+          "codigoAsociacion":"8600150679-10",
+          "codigoDispersion":"%-S",
+          "tipoDocumento":"N",
+          "numeroDocumento":"8600150679",
+          "fechaCreacion":"2020-04-07",
+          "fechaVencimiento":"2020-06-05",
+          "nombreCliente":"CLIENTE MIGRAR BBS A CORP 0055",
+          "unidadNegocio":"08590060000",
+          "usuarioCreacion":"fdiaz6"
+       },
+       {
+          "codigoAsociacion":"9005788982-1",
+          "codigoDispersion":"%+P",
+          "tipoDocumento":"N",
+          "numeroDocumento":"9005788982",
+          "fechaCreacion":"2020-02-28",
+          "fechaVencimiento":"2020-04-28",
+          "nombreCliente":"PALO DE AGUA EVENTOS SAS",
+          "unidadNegocio":"06370030001",
+          "usuarioCreacion":"fdiaz6"
+       },
+       {
+          "codigoAsociacion":"8600150679-2",
+          "codigoDispersion":"%-M",
+          "tipoDocumento":"N",
+          "numeroDocumento":"8600150679",
+          "fechaCreacion":"2020-04-07",
+          "fechaVencimiento":"2020-06-05",
+          "nombreCliente":"CLIENTE MIGRAR BBS A CORP 0055",
+          "unidadNegocio":"08590060000",
+          "usuarioCreacion":"osierra"
+       },
+       {
+          "codigoAsociacion":"8600150679-3",
+          "codigoDispersion":"%-N",
+          "tipoDocumento":"N",
+          "numeroDocumento":"8600150679",
+          "fechaCreacion":"2020-04-07",
+          "fechaVencimiento":"2020-06-05",
+          "nombreCliente":"CLIENTE MIGRAR BBS A CORP 0055",
+          "unidadNegocio":"08590060000",
+          "usuarioCreacion":"osierra"
+       }
+    ],
+    "statusCode":"200",
+    "descripcion":"Ejecucion Exitosa"
+ }

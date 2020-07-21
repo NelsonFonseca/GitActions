@@ -1,0 +1,15 @@
+{
+    "estadoNegociacion":{
+       "numeroEstudio":"46475",
+       "estado":"Aprobado OGP",
+       "usuarioCreador":"AROMER3",
+       "nombreUsuarioAprobador":"HOLMAN ANDRES SANCHEZ",
+       "fechaFinalizacion":"2020-05-13",
+       "nombreUsuarioCreador":"ALEJANDRO ROMERO RENGIFO",
+       "numeroEscenario":"46476",
+       "fechaCreacion":"2019-04-25",
+       "unidadNegocio":"1234",
+       "usuarioAprobador":"HSANCH8",
+       "estadoMarcacion":true
+    }
+ }
