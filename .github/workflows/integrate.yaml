@@ -6,11 +6,9 @@ jobs:
     run_push:
         runs-on: ubuntu-latest
         steps:
-            - name: clonar y checkout a la rama
             - uses: actions/checkout@v2
             - uses: actions/setup-node@v1
               with: 
                 node-version: 6
-            - name: instalar dependencias
             - run: npm install
             - run: npm start
