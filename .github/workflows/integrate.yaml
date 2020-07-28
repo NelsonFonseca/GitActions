@@ -6,7 +6,7 @@ jobs:
     run_push:
         runs-on: ubuntu-latest
         env:
-          REPOSITORY_URL: GitActions.github.com
+          REPOSITORY_URL: https://github.com/NelsonFonseca/GitActions
           IMAGE_NAME: ${{ github.repository }}/alerta-cli
           SLACK_WEBHOOK_URL: 'https://hooks.slack.com/services/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'
         steps:
