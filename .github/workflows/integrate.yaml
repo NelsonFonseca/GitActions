@@ -36,9 +36,9 @@ jobs:
               run: npm run build
             - name: Creación de artefacto
               id: Generar_Artefacto
-              uses: actions/upload-artifact@v1
+              uses: actions/upload-artifact@v2
               with:
-                name: dist
+                name: GithubActions
                 path: dist
             - name: Build and push Docker images
               id: Dockerizacion
