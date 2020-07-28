@@ -13,8 +13,8 @@ jobs:
                 node-version: 6
             - name: Intalar dependencias
               run: npm install
-            - name: Correr test unitarios
-              run: npm test
+            #- name: Correr test unitarios
+             # run: npm test
             - name: Creación de artefacto
               uses: actions/upload-artifact@v1
               with:
