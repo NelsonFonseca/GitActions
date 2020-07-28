@@ -8,7 +8,7 @@ jobs:
         env:
           REPOSITORY_URL: https://github.com/NelsonFonseca/GitActions
           IMAGE_NAME: ${{ github.repository }}/alerta-cli
-          SLACK_WEBHOOK_URL: 'https://hooks.slack.com/services/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'
+          SLACK_WEBHOOK_URL: https://hooks.slack.com/services/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
         steps:
             - uses: act10ns/slack@v1
               with:
