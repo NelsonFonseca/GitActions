@@ -23,9 +23,15 @@ jobs:
             - name: Intalar dependencias
               id: Compilacion
               run: npm install
-            - name: Correr test unitarios
-              id: Pruebas_Unitarias
-              run: npm test
+            #- name: Correr test unitarios
+             # id: Pruebas_Unitarias
+              #run: npm test
+            - name: SonarCloud Scan
+              id: Analisis_Codigo_Estatico
+              uses: sonarsource/sonarcloud-github-action@master
+              env:
+                GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+                SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
             - name: Hacer build
               run: npm run build
             - name: Creación de artefacto
