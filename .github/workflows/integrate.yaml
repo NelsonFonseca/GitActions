@@ -15,11 +15,11 @@ jobs:
               run: npm install
             #- name: Correr test unitarios
              # run: npm test
-            - name: Creación de artefacto
-              uses: actions/upload-artifact@v1
-              with:
-                name: dist
-                path: dist
+            #- name: Creación de artefacto
+             # uses: actions/upload-artifact@v1
+              #with:
+               # name: dist
+                #path: dist
             - name: Reporte Slack
               uses: bryannice/gitactions-slack-notification@master
               env:
