@@ -6,7 +6,8 @@
   "scripts": {
     "test": "jest",
     "start": "node src/index.js",
-    "dev": "nodemon src/index.js"
+    "dev": "nodemon src/index.js",
+    "build": "webpack"
   },
   "keywords": [],
   "author": "",
@@ -19,6 +20,8 @@
   },
   "devDependencies": {
     "jest": "^26.1.0",
-    "nodemon": "^2.0.4"
+    "nodemon": "^2.0.4",
+    "webpack": "^4.44.0",
+    "webpack-cli": "^3.3.12"
   }
 }

@@ -13,13 +13,15 @@ jobs:
                 node-version: 6
             - name: Intalar dependencias
               run: npm install
-            #- name: Correr test unitarios
-             # run: npm test
-            #- name: Creación de artefacto
-             # uses: actions/upload-artifact@v1
-              #with:
-               # name: dist
-                #path: dist
+            - name: Correr test unitarios
+              run: npm test
+            - name: Hacer build
+              run: npm run build
+            - name: Creación de artefacto
+              uses: actions/upload-artifact@v1
+              with:
+                name: dist
+                path: dist
             - name: Reporte Slack
               uses: drilonrecica/action-slack-notify@0.0.3
               env:
