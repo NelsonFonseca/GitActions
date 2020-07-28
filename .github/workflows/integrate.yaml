@@ -21,7 +21,7 @@ jobs:
               with: 
                 node-version: 6
             - name: Intalar dependencias
-              id: Compilación
+              id: Compilacion
               run: npm install
             #- name: Correr test unitarios
               #id: Pruebas unitarias
@@ -35,7 +35,7 @@ jobs:
                 name: dist
                 path: dist
             - name: Build and push Docker images
-              id: Dockerización
+              id: Dockerizacion
               uses: docker/build-push-action@v1
               with:
                 username: nfonse4
