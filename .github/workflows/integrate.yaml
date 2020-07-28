@@ -23,9 +23,9 @@ jobs:
             - name: Intalar dependencias
               id: Compilacion
               run: npm install
-            #- name: Correr test unitarios
-              #id: Pruebas unitarias
-             # run: npm test
+            - name: Correr test unitarios
+              id: Pruebas unitarias
+              run: npm test
             - name: Hacer build
               run: npm run build
             - name: Creación de artefacto
