@@ -21,8 +21,9 @@ jobs:
                # name: dist
                 #path: dist
             - name: Reporte Slack
-              uses: bryannice/gitactions-slack-notification@master
+              uses: drilonrecica/action-slack-notify@0.0.3
               env:
+                SLACK_CHANNEL: githubtest
                 SLACK_WEBHOOK: https://hooks.slack.com/services/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
                 SLACK_TITLE: 'Creacion Artefacto'
                 SLACK_MESSAGE: 'Esto es una demo :)'
