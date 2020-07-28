@@ -24,7 +24,7 @@ jobs:
               id: Compilacion
               run: npm install
             - name: Correr test unitarios
-              id: Pruebas unitarias
+              id: Pruebas_Unitarias
               run: npm test
             - name: Hacer build
               run: npm run build
