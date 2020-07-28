@@ -5,31 +5,37 @@ on: push
 jobs: 
     run_push:
         runs-on: ubuntu-latest
+        env:
+          REPOSITORY_URL: docker.pkg.github.com
+          IMAGE_NAME: ${{ github.repository }}/alerta-cli
+          SLACK_WEBHOOK_URL: 'https://hooks.slack.com/services/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'
         steps:
+            - uses: act10ns/slack@v1
+              with:
+                status: starting
+                channel: '#githubtest'
+              if: always()
             - uses: actions/checkout@v2
             - name: Usar node js
               uses: actions/setup-node@v1
               with: 
                 node-version: 6
             - name: Intalar dependencias
+              id: Compilación
               run: npm install
             #- name: Correr test unitarios
+              #id: Pruebas unitarias
              # run: npm test
             - name: Hacer build
               run: npm run build
             - name: Creación de artefacto
+              id: Generar artefacto
               uses: actions/upload-artifact@v1
               with:
                 name: dist
                 path: dist
-            #- name: Reporte Slack
-             # uses: drilonrecica/action-slack-notify@0.0.3
-              #env:
-               # SLACK_CHANNEL: githubtest
-                #SLACK_WEBHOOK: https://hooks.slack.com/services/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
-                #SLACK_TITLE: 'Creacion Artefacto'
-                #SLACK_MESSAGE: 'Esto es una demo :)'
             - name: Build and push Docker images
+              id: Dockerización
               uses: docker/build-push-action@v1
               with:
                 username: nfonse4
