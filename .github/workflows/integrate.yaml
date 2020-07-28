@@ -9,45 +9,55 @@ jobs:
           REPOSITORY_URL: https://github.com/NelsonFonseca/GitActions
           IMAGE_NAME: ${{ github.repository }}/alerta-cli
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+
         steps:
             - uses: act10ns/slack@v1
               with:
                 status: starting
                 channel: '#githubtest'
               if: always()
+
             - uses: actions/checkout@v2
+
             - name: Usar node js
               uses: actions/setup-node@v1
               with: 
                 node-version: 6
-            - name: Intalar dependencias
+
+            - name: Instalar dependencias
               id: Compilacion
               run: npm install
+
             #- name: Correr test unitarios
              # id: Pruebas_Unitarias
               #run: npm test
-            - name: SonarCloud Scan
+
+            - name: Analisis de codigo estatico
               id: Analisis_Codigo_Estatico
               uses: sonarsource/sonarcloud-github-action@master
               env:
                 GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
                 SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+
             - name: Hacer build
               run: npm run build
+
             - name: Creación de artefacto
               id: Generar_Artefacto
               uses: actions/upload-artifact@v2
               with:
                 name: GithubActions
                 path: dist
-            - name: Build and push Docker images
+
+            - name: Dockerizacion
               id: Dockerizacion
               uses: docker/build-push-action@v1
               with:
-                username: nfonse4
-                password: Cc1057609393
-                repository: nfonse4/gitactions
+                username: ${{ secrets.USER_DOCKER }}
+                password: ${{ secrets.PASSWORD_DOCKER }}
+                repository: ${{ secrets.REPOSITORY_DOCKER }}
                 tags: latest
+
             - uses: act10ns/slack@v1
               with:
                 status: ${{ job.status }}
