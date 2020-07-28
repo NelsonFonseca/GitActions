@@ -29,7 +29,7 @@ jobs:
             - name: Hacer build
               run: npm run build
             - name: Creación de artefacto
-              id: Generar artefacto
+              id: Generar_Artefacto
               uses: actions/upload-artifact@v1
               with:
                 name: dist
