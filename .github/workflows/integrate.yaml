@@ -12,7 +12,7 @@ jobs:
               with: 
                 node-version: 6
             - name: Intalar dependencias
-              run: npm ci
+              run: npm install
             - name: Correr test unitarios
               run: npm test
             - name: Creación de artefacto
