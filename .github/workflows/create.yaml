@@ -28,7 +28,7 @@ jobs:
               uses: awais786327/ifttt-action@v1
               id: trello
               with:
-                event: "github_create"
+                event: "github_issue"
                 key: "Gc70Dua-JBnrZCo44v153wsmtaGv40JqvVivB69YbaIECmOyTDfQ6R67zoJtvkly"
 
             - name: Send email
