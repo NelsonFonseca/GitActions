@@ -24,6 +24,16 @@ jobs:
               id: name_branch
             - run: echo '${{ steps.extract_branch.outputs.branch }}'
 
+            - uses: rishabhgupta/git-action-issue@v2
+              id: Issue
+              with:
+                  token: ${{ secrets.GITHUB_TOKEN }}
+                  title: Title
+                  body: body
+                  assignees: 'rishabhgupta'
+            - run: |
+                echo ${{ steps.issue.outputs.issue }}
+
             - name: trello
               uses: delivered/attach-to-trello-card-action@master
               id: trello
