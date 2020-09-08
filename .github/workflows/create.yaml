@@ -1,0 +1,11 @@
+name: Creacion de una Rama
+
+on: create
+
+jobs:
+  run_create_branch:
+      runs-on: ubuntu-latest
+
+      steps:
+        - name: Inicio
+          run: echo 'Se ha creado una rama!'
