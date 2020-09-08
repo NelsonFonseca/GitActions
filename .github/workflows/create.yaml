@@ -5,7 +5,27 @@ on: create
 jobs:
   run_create_branch:
       runs-on: ubuntu-latest
+      env:
+          REPOSITORY_URL: https://github.com/NelsonFonseca/GitActions
+          IMAGE_NAME: ${{ github.repository }}/alerta-cli
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
 
       steps:
-        - name: Inicio
-          run: echo 'Se ha creado una rama!'
+            - uses: act10ns/slack@v1
+              with:
+                status: starting
+                channel: '#githubtest'
+              if: always()
+
+            - uses: actions/checkout@v2
+
+            - name: Inicio
+              id: Se creo una rama ${GITHUB_REF##*/}
+              run: echo 'Se ha creado una rama! ${GITHUB_REF##*/}'
+
+            - uses: act10ns/slack@v1
+              with:
+                status: ${{ job.status }}
+                steps: ${{ toJson(steps) }}
+                channel: '#githubtest'
+              if: always()
