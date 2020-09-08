@@ -9,6 +9,7 @@ jobs:
           REPOSITORY_URL: https://github.com/NelsonFonseca/GitActions
           IMAGE_NAME: ${{ github.repository }}/alerta-cli
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+          TRELLO_WEBHOOK_KEY: ${{ secrets.TRELLO_WEBHOOK_KEY }}
 
       steps:
             - uses: act10ns/slack@v1
@@ -19,9 +20,29 @@ jobs:
 
             - uses: actions/checkout@v2
 
-            - name: Inicio
-              id: CreaRama
-              run: echo 'Se ha creado una rama! ${{ steps.extract_branch.outputs.branch }}'
+            - name: NombreRama
+              shell: bash
+              run: echo "##[set-output name=branch;]$(echo ${GITHUB_REF#refs/heads/})"
+              id: name_branch
+            - run: echo 'Se ha creado una rama! ${{ steps.extract_branch.outputs.branch }}'
+
+            - name: Send email
+              uses: devellany/send-mailer@v1.0.2
+              with:
+                host: smtp.google.com
+                # Optional port (defaults to 465)
+                port: 465
+                account: nelsonfonseca80@gmail.com
+                password: Zero5inco
+                sender: devellany
+                from: ${{secrets.MAIL_ADDRESS}}
+                to: nelsonfonseca80@gmail.com
+                subject: Branch created ${{ steps.extract_branch.outputs.branch }}
+                body: prueba :)
+                # Optional content type (defaults to text/plain)
+                contentType: text/plain
+                # Optional attachment files (JSON type. require property 'path')
+                attachments: '[{"path":"README.md"}]'
 
             - uses: act10ns/slack@v1
               with:
