@@ -32,15 +32,11 @@ jobs:
                 port: 465
                 account: nelsonfonseca80@gmail.com
                 password: Zero5inco
-                sender: devellany
-                from: ${{secrets.MAIL_ADDRESS}}
+                sender: nelson
+                from: nelsonfonseca80@gmail.com
                 to: nelsonfonseca80@gmail.com
                 subject: Branch created ${{ steps.extract_branch.outputs.branch }}
                 body: prueba :)
-                # Optional content type (defaults to text/plain)
-                contentType: text/plain
-                # Optional attachment files (JSON type. require property 'path')
-                attachments: '[{"path":"README.md"}]'
 
             - uses: act10ns/slack@v1
               with:
