@@ -22,7 +22,13 @@ jobs:
             - name: NombreRama
               run: echo "##[set-output name=branch;]$(echo ${GITHUB_REF#refs/heads/})"
               id: name_branch
-            - run: echo 'Se ha creado una rama! ${{ steps.extract_branch.outputs.branch }}'
+            - run: echo '${{ steps.extract_branch.outputs.branch }}'
+
+            - name: trello
+              uses: awais786327/ifttt-action@v1
+              with:
+                event: "created"
+                key: "Gc70Dua-JBnrZCo44v153wsmtaGv40JqvVivB69YbaIECmOyTDfQ6R67zoJtvkly"
 
             - name: Send email
               uses: devellany/send-mail@v1.0.2
@@ -36,7 +42,7 @@ jobs:
                 from: nelsonfonseca80@gmail.com
                 to: nelsonfonseca80@gmail.com
                 subject: Branch created ${{ steps.extract_branch.outputs.branch }}
-                body: prueba :)
+                body: "prueba :)"
 
             - uses: act10ns/slack@v1
               with:

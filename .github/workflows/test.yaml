@@ -1,9 +1,9 @@
-name: Actions master
+name: Actions QA
 
 on: 
-  push:
+  pull_request:
     branches: 
-      - master
+      - QA
 
 
 jobs: 
@@ -18,7 +18,7 @@ jobs:
             - uses: act10ns/slack@v1
               with:
                 status: starting
-                channel: '#githubtest'
+                channel: '#qa'
               if: always()
 
             - uses: actions/checkout@v2
@@ -31,6 +31,17 @@ jobs:
             - name: Instalar dependencias
               id: Compilacion
               run: npm install
+
+            #- name: Correr test unitarios
+             # id: Pruebas_Unitarias
+              #run: npm test
+
+            - name: Analisis de codigo estatico
+              id: Analisis_Codigo_Estatico
+              uses: sonarsource/sonarcloud-github-action@master
+              env:
+                GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+                SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
 
             - name: Hacer build
               run: npm run build
