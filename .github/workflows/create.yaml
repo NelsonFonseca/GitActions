@@ -20,8 +20,8 @@ jobs:
             - uses: actions/checkout@v2
 
             - name: Inicio
-              id: Se creo una rama ${GITHUB_REF##*/}
-              run: echo 'Se ha creado una rama! ${GITHUB_REF##*/}'
+              id: Se creo una rama
+              run: echo 'Se ha creado una rama! ${{ steps.extract_branch.outputs.branch }}'
 
             - uses: act10ns/slack@v1
               with:
