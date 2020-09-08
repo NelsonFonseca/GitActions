@@ -9,7 +9,6 @@ jobs:
           REPOSITORY_URL: https://github.com/NelsonFonseca/GitActions
           IMAGE_NAME: ${{ github.repository }}/alerta-cli
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
-          TRELLO_WEBHOOK_KEY: ${{ secrets.TRELLO_WEBHOOK_KEY }}
 
       steps:
             - uses: act10ns/slack@v1
