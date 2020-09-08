@@ -24,14 +24,9 @@ jobs:
               id: name_branch
             - run: echo '${{ steps.extract_branch.outputs.branch }}'
 
-            - name: trello
-              uses: awais786327/ifttt-action@v1
-              with:
-                event: "created"
-                key: "Gc70Dua-JBnrZCo44v153wsmtaGv40JqvVivB69YbaIECmOyTDfQ6R67zoJtvkly"
-
             - name: Send email
               uses: devellany/send-mail@v1.0.2
+              id: mail
               with:
                 host: smtp.google.com
                 # Optional port (defaults to 465)
@@ -43,6 +38,13 @@ jobs:
                 to: nelsonfonseca80@gmail.com
                 subject: Branch created ${{ steps.extract_branch.outputs.branch }}
                 body: "prueba :)"
+
+            - name: trello
+              uses: awais786327/ifttt-action@v1
+              id: trello
+              with:
+                event: "github_create"
+                key: "Gc70Dua-JBnrZCo44v153wsmtaGv40JqvVivB69YbaIECmOyTDfQ6R67zoJtvkly"
 
             - uses: act10ns/slack@v1
               with:
