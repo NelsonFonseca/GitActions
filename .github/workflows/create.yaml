@@ -21,7 +21,6 @@ jobs:
             - uses: actions/checkout@v2
 
             - name: NombreRama
-              shell: bash
               run: echo "##[set-output name=branch;]$(echo ${GITHUB_REF#refs/heads/})"
               id: name_branch
             - run: echo 'Se ha creado una rama! ${{ steps.extract_branch.outputs.branch }}'
