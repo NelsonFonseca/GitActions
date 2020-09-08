@@ -25,11 +25,11 @@ jobs:
             - run: echo '${{ steps.extract_branch.outputs.branch }}'
 
             - name: trello
-              uses: awais786327/ifttt-action@v1
+              uses: delivered/attach-to-trello-card-action@master
               id: trello
               with:
-                event: "github_issue"
-                key: "Gc70Dua-JBnrZCo44v153wsmtaGv40JqvVivB69YbaIECmOyTDfQ6R67zoJtvkly"
+                trello-key: ${{ secrets.TRELLO_KEY }}
+                trello-token: ${{ secrets.TRELLO_TOKEN }}
 
             - name: Send email
               uses: devellany/send-mail@v1.0.2
