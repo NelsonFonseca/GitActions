@@ -1,6 +1,8 @@
 name: Creacion Card en Trello
 
-on: issues
+on: 
+  issues:
+    types: [opened]
 
 jobs:
   run_open-issue:
