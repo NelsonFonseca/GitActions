@@ -5,10 +5,6 @@ on: create
 jobs:
   run_create_branch:
       runs-on: ubuntu-latest
-      env:
-          REPOSITORY_URL: https://github.com/NelsonFonseca/GitActions
-          IMAGE_NAME: ${{ github.repository }}/alerta-cli
-          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
 
       steps:
             - uses: act10ns/slack@v1
@@ -24,8 +20,8 @@ jobs:
               id: name_branch
             - run: echo '${{ steps.extract_branch.outputs.branch }}'
 
-            - name: issuej
-              id: issuej
+            - name: create-issue
+              id: issue
               uses: alialaa/issue-action@v1
               with:
                 token: ${{ secrets.GITHUB_TOKEN }}
@@ -44,39 +40,6 @@ jobs:
                 TRELLO_API_TOKEN: ${{ secrets.TRELLO_TOKEN }}
                 TRELLO_BOARD_ID: ${{ secrets.TRELLO_BOARD_ID }}
                 TRELLO_LIST_ID: ${{ secrets.TRELLO_LIST_ID }} 
-
-            - name: CreateIssue
-              uses: bryannice/gitactions-git-issue-creation@master
-              id: create-issue
-              env:
-                GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-                GITHUB_SHA: ${{ github.sha }}
-                GITHUB_OWNER: 'NelsonFonseca'
-                GITHUB_REPOSITORY: 'GitActions'
-                GITHUB_ISSUE_TITLE: 'Branch Create'
-                GITHUB_ISSUE_BODY: 'The branch x it was created'
-
-            - name: trello
-              uses: delivered/attach-to-trello-card-action@master
-              id: trello
-              with:
-                trello-key: ${{ secrets.TRELLO_KEY }}
-                trello-token: ${{ secrets.TRELLO_TOKEN }}
-
-            - name: Send email
-              uses: devellany/send-mail@v1.0.2
-              id: mail
-              with:
-                host: smtp.google.com
-                # Optional port (defaults to 465)
-                port: 465
-                account: nelsonfonseca80@gmail.com
-                password: Zero5inco
-                sender: nelson
-                from: nelsonfonseca80@gmail.com
-                to: nelsonfonseca80@gmail.com
-                subject: Branch created ${{ steps.extract_branch.outputs.branch }}
-                body: "prueba :)"
 
             - uses: act10ns/slack@v1
               with:

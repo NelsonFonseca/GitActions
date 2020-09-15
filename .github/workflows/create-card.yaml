@@ -1,0 +1,35 @@
+name: Creacion Card en Trello
+
+on: 
+  issues:
+    types: [opened, reopened]
+
+jobs:
+  run_open-issue:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: act10ns/slack@v1
+        with:
+          status: starting
+          channel: '#githubtest'
+        if: always()
+
+      - uses: actions/checkout@v2
+
+      - name: Call trello-github-actions
+        id: trello-action
+        uses: jessicazu/trello-github-actions@v1.0
+        with:
+          trello-action: create_card_when_issue_opened 
+        env:
+          TRELLO_API_KEY: ${{ secrets.TRELLO_KEY }}
+          TRELLO_API_TOKEN: ${{ secrets.TRELLO_TOKEN }}
+          TRELLO_BOARD_ID: ${{ secrets.TRELLO_BOARD_ID }}
+          TRELLO_LIST_ID: ${{ secrets.TRELLO_LIST_ID }} 
+
+      - uses: act10ns/slack@v1
+        with:
+          status: ${{ job.status }}
+          steps: ${{ toJson(steps) }}
+          channel: '#githubtest'
+        if: always()
