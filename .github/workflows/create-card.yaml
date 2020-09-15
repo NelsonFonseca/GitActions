@@ -7,6 +7,11 @@ on:
 jobs:
   run_open-issue:
     runs-on: ubuntu-latest
+    env:
+      REPOSITORY_URL: https://github.com/NelsonFonseca/GitActions
+      IMAGE_NAME: ${{ github.repository }}/alerta-cli
+      SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+      
     steps:
       - uses: act10ns/slack@v1
         with:
