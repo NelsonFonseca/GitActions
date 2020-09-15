@@ -24,12 +24,16 @@ jobs:
               id: name_branch
             - run: echo '${{ steps.extract_branch.outputs.branch }}'
 
-            - uses: JasonEtco/create-an-issue@v2
+            - name: CreateIssue
+            - uses: bryannice/gitactions-git-issue-creation@master
+              id: create-issue
               env:
                 GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-              id: create-issue
-            - run: 'echo Created issue number ${{ steps.create-issue.outputs.number }}'
-            - run: 'echo Created ${{ steps.create-issue.outputs.url }}'
+                GITHUB_SHA: ${{ github.sha }}
+                GITHUB_OWNER: 'nelsin'
+                GITHUB_REPOSITORY: 'GitActions'
+                GITHUB_ISSUE_TITLE: 'Demo''Branch Create'
+                GITHUB_ISSUE_BODY: 'Demo''The branch x it was created'
 
             - name: trello
               uses: delivered/attach-to-trello-card-action@master
