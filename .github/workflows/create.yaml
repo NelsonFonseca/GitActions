@@ -32,8 +32,8 @@ jobs:
                 GITHUB_SHA: ${{ github.sha }}
                 GITHUB_OWNER: 'NelsonFonseca'
                 GITHUB_REPOSITORY: 'GitActions'
-                GITHUB_ISSUE_TITLE: 'Demo''Branch Create'
-                GITHUB_ISSUE_BODY: 'Demo''The branch x it was created'
+                GITHUB_ISSUE_TITLE: 'Branch Create'
+                GITHUB_ISSUE_BODY: 'The branch x it was created'
 
             - name: trello
               uses: delivered/attach-to-trello-card-action@master
