@@ -30,8 +30,6 @@ jobs:
                 token: ${{ secrets.GITHUB_TOKEN }}
                 title: Create Branch ${{ github.ref }}
                 body: It was create branch - ${{ github.ref }} -
-                assignees: |
-                  NelsonFonseca
 
             - uses: act10ns/slack@v1
               with:

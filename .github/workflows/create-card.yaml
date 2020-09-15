@@ -2,7 +2,7 @@ name: Creacion Card en Trello
 
 on: 
   issues:
-    types: [opened]
+    types: [opened, unassigned]
 
 jobs:
   run_open-issue:
