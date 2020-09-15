@@ -24,6 +24,16 @@ jobs:
               id: name_branch
             - run: echo '${{ steps.extract_branch.outputs.branch }}'
 
+            - name: issuej
+              id: issuej
+              uses: alialaa/issue-action@v1
+              with:
+                token: ${{ secrets.GITHUB_TOKEN }}
+                title: Some Issue Title
+                body: Some Issue Body
+                assignees: |
+                  NelsonFonseca
+
             - name: Call trello-github-actions
               id: trello-action
               uses: jessicazu/trello-github-actions@v1.0
