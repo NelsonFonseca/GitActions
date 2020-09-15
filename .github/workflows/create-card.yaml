@@ -1,8 +1,6 @@
 name: Creacion Card en Trello
 
-on: 
-  issues:
-    types: [opened, reopened]
+on: issues
 
 jobs:
   run_open-issue:
@@ -11,12 +9,12 @@ jobs:
       REPOSITORY_URL: https://github.com/NelsonFonseca/GitActions
       IMAGE_NAME: ${{ github.repository }}/alerta-cli
       SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
-      
+
     steps:
       - uses: act10ns/slack@v1
         with:
           status: starting
-          channel: '#githubtest'
+          channel: '#branches'
         if: always()
 
       - uses: actions/checkout@v2

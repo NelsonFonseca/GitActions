@@ -14,13 +14,13 @@ jobs:
             - uses: act10ns/slack@v1
               with:
                 status: starting
-                channel: '#githubtest'
+                channel: '#branches'
               if: always()
 
             - uses: actions/checkout@v2
 
             - name: NombreRama
-              run: echo ${GITHUB_REF##*/}
+              run: echo ${{ github.ref }}
               id: name_branch
 
             - name: create-issue
@@ -28,8 +28,8 @@ jobs:
               uses: alialaa/issue-action@v1
               with:
                 token: ${{ secrets.GITHUB_TOKEN }}
-                title: Create Branch ${GITHUB_REF##*/}
-                body: It was create branch - ${GITHUB_REF##*/} -
+                title: Create Branch ${{ github.ref }}
+                body: It was create branch - ${{ github.ref }} -
                 assignees: |
                   NelsonFonseca
 
