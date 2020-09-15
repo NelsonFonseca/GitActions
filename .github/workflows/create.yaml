@@ -24,6 +24,17 @@ jobs:
               id: name_branch
             - run: echo '${{ steps.extract_branch.outputs.branch }}'
 
+            - name: Call trello-github-actions
+              id: trello-action
+              uses: jessicazu/trello-github-actions@v1.0
+              with:
+                trello-action: create_card_when_issue_opened 
+              env:
+                TRELLO_API_KEY: ${{ secrets.TRELLO_KEY }}
+                TRELLO_API_TOKEN: ${{ secrets.TRELLO_TOKEN }}
+                TRELLO_BOARD_ID: ${{ secrets.TRELLO_BOARD_ID }}
+                TRELLO_LIST_ID: ${{ secrets.TRELLO_TO_DO_LIST_ID }} 
+
             - name: CreateIssue
               uses: bryannice/gitactions-git-issue-creation@master
               id: create-issue
